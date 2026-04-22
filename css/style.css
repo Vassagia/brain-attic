@@ -1,12 +1,602 @@
-/* Styles du projet */
+/* ============================================
+   BRAIN ATTIC — style.css
+   Thème : sombre / cosmos / scientifique
+   ============================================ */
 
-* {
+/* === VARIABLES CSS ===
+   On définit les couleurs UNE FOIS ici.
+   Partout ailleurs on utilise var(--nom).
+   Si tu veux changer une couleur → tu touches qu'ici. */
+:root {
+  --bg-primary: #0a0e1a;       /* fond principal : noir cosmos */
+  --bg-secondary: #111827;     /* fond secondaire : anthracite */
+  --bg-card: #1a2235;          /* fond des cartes livres */
+  --bg-card-hover: #1e2a42;    /* fond carte au survol */
+
+  --accent-primary: #00d4ff;   /* cyan électrique — couleur principale */
+  --accent-secondary: #0ea5e9; /* bleu ciel — couleur secondaire */
+  --accent-glow: rgba(0, 212, 255, 0.15); /* lueur cyan pour les ombres */
+
+  --text-primary: #e2e8f0;     /* texte principal : blanc cassé */
+  --text-secondary: #94a3b8;   /* texte secondaire : gris clair */
+  --text-muted: #64748b;       /* texte discret : gris foncé */
+
+  --border-color: #1e3a5f;     /* couleur des bordures */
+  --border-accent: #00d4ff;    /* bordure accentuée (focus, hover) */
+
+  --error-color: #ef4444;      /* rouge pour les erreurs de validation */
+  --success-color: #22c55e;    /* vert pour les confirmations */
+
+  --radius: 12px;              /* arrondi des cartes */
+  --radius-sm: 6px;            /* arrondi petit (inputs, boutons) */
+  --transition: 0.3s ease;     /* durée des animations */
+
+  --font-main: 'Segoe UI', system-ui, sans-serif; /* police principale */
+}
+
+/* === RESET & BASE ===
+   On remet à zéro les marges/paddings par défaut du navigateur.
+   Chaque navigateur a ses propres valeurs par défaut — on uniformise. */
+*, *::before, *::after {
+  box-sizing: border-box; /* padding inclus dans la largeur totale */
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+/* Le scroll défile doucement au clic sur les ancres (#collection) */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  line-height: 1.6; /* espacement entre les lignes de texte */
+  min-height: 100vh; /* occupe au minimum toute la hauteur de l'écran */
+}
+
+/* === HEADER === */
+.site-header {
+  background: linear-gradient(135deg, #0a0e1a 0%, #0f172a 50%, #0a1628 100%);
+  /* dégradé : simule une profondeur spatiale */
+  border-bottom: 1px solid var(--border-color);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative; /* nécessaire pour le pseudo-élément ::before */
+  overflow: hidden;   /* cache ce qui dépasse */
+}
+
+/* Effet de lueur derrière le titre — purement décoratif */
+.site-header::before {
+  content: '';          /* obligatoire sur ::before même si vide */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 200px;
+  background: radial-gradient(ellipse, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none; /* le pseudo-élément ne bloque pas les clics */
+}
+
+.site-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  /* clamp(min, préféré, max) : taille fluide selon la largeur d'écran */
+  font-weight: 800;
+  color: var(--accent-primary);
+  letter-spacing: 0.05em; /* espacement entre lettres */
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+  /* ombre lumineuse cyan autour du titre */
+}
+
+.site-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase; /* texte en majuscules */
+}
+
+/* === NAV === */
+.main-nav {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;          /* les liens côte à côte */
+  justify-content: center;/* centrés horizontalement */
+  gap: 2rem;              /* espace entre les liens */
+  padding: 0.75rem 1.5rem;
+  position: sticky; /* la nav reste visible quand on scrolle */
+  top: 0;           /* collée en haut de l'écran */
+  z-index: 100;     /* passe au-dessus des autres éléments */
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none; /* supprime le soulignement par défaut */
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent; /* invisible par défaut */
+  transition: var(--transition); /* animation fluide sur les changements */
+}
+
+/* :hover = quand la souris survole le lien */
+.nav-link:hover {
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+  /* le soulignement cyan apparaît au survol */
+}
+
+/* :focus = quand l'élément est sélectionné au clavier (Tab) */
+.nav-link:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* === MAIN === */
+main {
+  max-width: 1200px;   /* largeur maximale du contenu */
+  margin: 0 auto;      /* centré horizontalement */
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column; /* sections empilées verticalement */
+  gap: 3rem;              /* espace entre les sections */
+}
+
+/* === SECTION TITRES === */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Ligne décorative à gauche du titre */
+.section-title::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 1.5rem;
+  background: var(--accent-primary);
+  border-radius: 2px;
+}
+
+/* Le compteur de livres "12 livres" */
+#book-count {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px; /* pill shape — forme de pilule */
+  border: 1px solid var(--border-color);
+}
+
+/* === SECTION CONTRÔLES === */
+.controls {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;       /* les contrôles côte à côte */
+  flex-wrap: wrap;     /* si trop petits, ils passent à la ligne */
+  gap: 1.5rem;
+  align-items: flex-end; /* alignés en bas (labels + inputs = hauteurs diff) */
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column; /* label au-dessus, input en-dessous */
+  gap: 0.4rem;
+  flex: 1;                /* chaque groupe prend l'espace disponible */
+  min-width: 200px;       /* largeur minimale avant retour à la ligne */
+}
+
+.control-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Style commun aux inputs ET aux selects */
+.control-group input,
+.control-group select {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  padding: 0.6rem 0.9rem;
+  transition: var(--transition);
+  width: 100%; /* prend toute la largeur du control-group */
+}
+
+/* :focus sur les inputs — obligatoire dans la grille d'évaluation */
+.control-group input:focus,
+.control-group select:focus {
+  outline: none; /* supprime le contour par défaut du navigateur */
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  /* lueur cyan autour du champ actif */
+}
+
+/* === GRILLE DE CARTES === */
+.books-grid {
+  display: grid;
+  /* auto-fill = autant de colonnes que possible
+     minmax(280px, 1fr) = minimum 280px, maximum = espace dispo */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* === CARTE LIVRE ===
+   Cette classe sera ajoutée par JavaScript sur chaque carte */
+.book-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ligne décorative colorée en haut de chaque carte */
+.book-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+}
+
+/* :hover sur la carte — effet de surélévation */
+.book-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-primary);
+  transform: translateY(-4px); /* monte de 4px */
+  box-shadow:
+          0 8px 25px rgba(0, 0, 0, 0.4),
+          0 0 0 1px var(--accent-primary),
+          0 0 20px var(--accent-glow);
+  /* triple ombre : profondeur + bordure + lueur */
+}
+
+.book-titre {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.book-auteur {
+  font-size: 0.9rem;
+  color: var(--accent-primary);
+  font-style: italic;
+}
+
+.book-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+/* Badge = petite étiquette arrondie (domaine, année, etc.) */
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  border: 1px solid;
+}
+
+.badge--domaine {
+  color: var(--accent-secondary);
+  border-color: var(--accent-secondary);
+  background: rgba(14, 165, 233, 0.1);
+}
+
+.badge--annee {
+  color: var(--text-muted);
+  border-color: var(--border-color);
+  background: transparent;
+}
+
+.badge--lu {
+  color: var(--success-color);
+  border-color: var(--success-color);
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.badge--nonlu {
+  color: var(--text-muted);
+  border-color: var(--border-color);
+  background: transparent;
+}
+
+/* Étoiles de notation */
+.book-note {
+  font-size: 0.9rem;
+  color: #fbbf24; /* doré pour les étoiles */
+  font-weight: 600;
+}
+
+/* Boutons d'action sur la carte (supprimer, modifier) */
+.book-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto; /* pousse les boutons en bas de la carte */
+}
+
+/* Couverture générée en CSS */
+.book-cover {
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  /* arrondi en haut seulement */
+  height: 120px;
+  margin: -1.5rem -1.5rem 1rem -1.5rem;
+  /* déborde sur le padding de la carte pour couvrir les bords */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effet de texture subtil sur la couverture */
+.book-cover::after {
+  content: '';
+  position: absolute;
+  inset: 0; /* équivaut à top:0 right:0 bottom:0 left:0 */
+  background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          rgba(255,255,255,0.02) 10px,
+          rgba(255,255,255,0.02) 20px
+  );
+  /* motif de lignes diagonal très discret */
+}
+
+.book-cover-initiales {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  z-index: 1; /* passe au-dessus du ::after */
+}
+
+.book-cover-domaine {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+/* === BOUTONS === */
+.btn {
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer; /* curseur main au survol */
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn--primary {
+  background: var(--accent-primary);
+  color: #0a0e1a; /* texte sombre sur fond cyan */
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+.btn--primary:hover {
+  background: var(--accent-secondary);
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.btn--primary:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+}
+
+.btn--danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error-color);
+  border: 1px solid var(--error-color);
+  flex: 1; /* prend l'espace dispo dans .book-actions */
+}
+
+.btn--danger:hover {
+  background: var(--error-color);
+  color: white;
+}
+
+.btn--edit {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  flex: 1;
+}
+
+.btn--edit:hover {
+  background: var(--accent-primary);
+  color: #0a0e1a;
+}
+
+/* === FORMULAIRE D'AJOUT === */
+.form-section {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
   padding: 2rem;
+}
+
+#form-ajout {
+  display: grid;
+  /* 2 colonnes égales sur desktop */
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group select {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  padding: 0.6rem 0.9rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* Le bouton submit occupe les 2 colonnes du grid */
+.btn--primary {
+  grid-column: 1 / -1;
+  /* 1 / -1 = de la première à la dernière colonne */
+}
+
+/* La checkbox occupe aussi les 2 colonnes */
+.form-group--checkbox {
+  grid-column: 1 / -1;
+  flex-direction: row; /* checkbox + label côte à côte */
+  align-items: center;
+}
+
+.form-group--checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  text-transform: none; /* exception : pas de majuscules ici */
+  font-size: 0.9rem;
+}
+
+/* Messages d'erreur de validation */
+.error-msg {
+  color: var(--error-color);
+  font-size: 0.78rem;
+  min-height: 1rem; /* hauteur réservée même si vide — évite les sauts */
+}
+
+/* === FOOTER === */
+.site-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+/* === MEDIA QUERIES ===
+   Minimum 2 requis dans la grille d'évaluation */
+
+/* Tablette : écrans ≤ 768px */
+@media (max-width: 768px) {
+  /* Le formulaire passe en 1 colonne */
+  #form-ajout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Les contrôles s'empilent */
+  .controls {
+    flex-direction: column;
+  }
+
+  /* Les cartes : 2 colonnes max sur tablette */
+  .books-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .site-title {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile : écrans ≤ 480px */
+@media (max-width: 480px) {
+  /* Une seule colonne de cartes */
+  .books-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* La nav s'adapte */
+  .main-nav {
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  main {
+    padding: 1.5rem 1rem;
+  }
+
+  .form-section {
+    padding: 1.25rem;
+  }
+}
+
+/* === SCROLLBAR PERSONNALISÉE ===
+   Cosmétique — cohérente avec le thème sombre */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
 }
