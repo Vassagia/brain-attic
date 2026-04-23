@@ -14,6 +14,7 @@ const livres = [
     note: 9.1,
     pages: 212,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9782277233619-L.jpg",
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ const livres = [
     note: 8.8,
     pages: 360,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/9780198788607-L.jpg",
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ const livres = [
     note: 9.4,
     pages: 365,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9780345539434-L.jpg",
   },
   {
     id: 4,
@@ -44,6 +47,7 @@ const livres = [
     note: 8.5,
     pages: 362,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/9780802713315-L.jpg",
   },
   {
     id: 5,
@@ -54,16 +58,18 @@ const livres = [
     note: 8.7,
     pages: 448,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9780385539302-L.jpg",
   },
   {
     id: 6,
-    titre: "Le Cerveau qui se réinvente",
-    auteur: "Michael Merzenich",
-    annee: 2013,
+    titre: "The Brain That Changes Itself",
+    auteur: "Norman Doidge",
+    annee: 2007,
     domaine: "Neurosciences",
-    note: 8.2,
-    pages: 288,
+    note: 8.9,
+    pages: 427,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/9780143113102-L.jpg",
   },
   {
     id: 7,
@@ -74,6 +80,7 @@ const livres = [
     note: 8.6,
     pages: 354,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9782070713066-L.jpg",
   },
   {
     id: 8,
@@ -84,6 +91,7 @@ const livres = [
     note: 8.3,
     pages: 224,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/0394718364-L.jpg",
   },
   {
     id: 9,
@@ -94,6 +102,7 @@ const livres = [
     note: 8.9,
     pages: 448,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9780393338102-L.jpg",
   },
   {
     id: 10,
@@ -104,6 +113,7 @@ const livres = [
     note: 9.0,
     pages: 480,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9782290130902-L.jpg",
   },
   {
     id: 11,
@@ -114,16 +124,18 @@ const livres = [
     note: 9.2,
     pages: 443,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg",
   },
   {
     id: 12,
-    titre: "The Order of Time",
+    titre: "Reality Is Not What It Seems",
     auteur: "Carlo Rovelli",
-    annee: 2017,
+    annee: 2016,
     domaine: "Physique",
-    note: 8.8,
-    pages: 224,
+    note: 8.9,
+    pages: 256,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9780141983219-L.jpg",
   },
   {
     id: 13,
@@ -134,16 +146,18 @@ const livres = [
     note: 7.9,
     pages: 320,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/9780471648000-L.jpg",
   },
   {
     id: 14,
-    titre: "Le Monde s'est fait en un jour",
-    auteur: "Jean-Claude Ameisen",
-    annee: 2014,
+    titre: "Your Inner Fish",
+    auteur: "Neil Shubin",
+    annee: 2008,
     domaine: "Biologie",
-    note: 8.4,
-    pages: 272,
+    note: 8.5,
+    pages: 229,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/9780307277459-L.jpg",
   },
   {
     id: 15,
@@ -154,6 +168,7 @@ const livres = [
     note: 8.9,
     pages: 290,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9780307389923-L.jpg",
   },
   {
     id: 16,
@@ -164,6 +179,7 @@ const livres = [
     note: 8.1,
     pages: 330,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/157062187X-L.jpg",
   },
   {
     id: 17,
@@ -174,6 +190,7 @@ const livres = [
     note: 8.6,
     pages: 272,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9782897730178-L.jpg",
   },
   {
     id: 18,
@@ -184,16 +201,18 @@ const livres = [
     note: 9.0,
     pages: 96,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9780399184437-L.jpg",
   },
   {
     id: 19,
-    titre: "L'ADN, cette inconnue",
-    auteur: "Jérôme Cosson",
-    annee: 2017,
+    titre: "The Spark in the Machine",
+    auteur: "Daniel Keown",
+    annee: 2014,
     domaine: "Biologie",
-    note: 7.8,
-    pages: 215,
+    note: 8.1,
+    pages: 256,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/9781848191969-L.jpg",
   },
   {
     id: 20,
@@ -204,6 +223,7 @@ const livres = [
     note: 9.3,
     pages: 499,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9780374533557-L.jpg",
   },
   {
     id: 21,
@@ -214,6 +234,7 @@ const livres = [
     note: 9.0,
     pages: 360,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/9780198788607-L.jpg",
   },
   {
     id: 22,
@@ -224,6 +245,7 @@ const livres = [
     note: 8.4,
     pages: 222,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9780393609394-L.jpg",
   },
   {
     id: 23,
@@ -234,6 +256,7 @@ const livres = [
     note: 8.7,
     pages: 312,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/9782759822607-L.jpg",
   },
   {
     id: 24,
@@ -244,16 +267,18 @@ const livres = [
     note: 8.5,
     pages: 288,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9781771642484-L.jpg",
   },
   {
     id: 25,
-    titre: "Pourquoi le monde va mieux",
-    auteur: "Johan Norberg",
+    titre: "The Gene",
+    auteur: "Siddhartha Mukherjee",
     annee: 2016,
     domaine: "Évolution",
-    note: 7.9,
-    pages: 248,
+    note: 9.0,
+    pages: 608,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/9781476733524-L.jpg",
   },
   {
     id: 26,
@@ -264,6 +289,7 @@ const livres = [
     note: 8.8,
     pages: 402,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9780385495325-L.jpg",
   },
   {
     id: 27,
@@ -274,16 +300,18 @@ const livres = [
     note: 9.1,
     pages: 790,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/9781594205071-L.jpg",
   },
   {
     id: 28,
-    titre: "La Chimie des émotions",
-    auteur: "Florian Ferreri",
-    annee: 2019,
+    titre: "The Disappearing Spoon",
+    auteur: "Sam Kean",
+    annee: 2010,
     domaine: "Chimie",
-    note: 7.6,
-    pages: 190,
+    note: 8.4,
+    pages: 391,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/9780316051644-L.jpg",
   },
   {
     id: 29,
@@ -294,16 +322,18 @@ const livres = [
     note: 8.3,
     pages: 412,
     lu: true,
+    cover: "https://covers.openlibrary.org/b/isbn/9780062328502-L.jpg",
   },
   {
     id: 30,
-    titre: "Le Temps et sa flèche",
-    auteur: "Étienne Klein",
-    annee: 2013,
+    titre: "In Search of Schrödinger's Cat",
+    auteur: "John Gribbin",
+    annee: 1984,
     domaine: "Physique",
-    note: 8.0,
-    pages: 186,
+    note: 8.3,
+    pages: 302,
     lu: false,
+    cover: "https://covers.openlibrary.org/b/isbn/0552125555-L.jpg",
   },
 ];
 
@@ -371,8 +401,6 @@ function generateId() {
   return ids.length > 0 ? Math.max(...ids) + 1 : 1;
 }
 
-// Associe chaque domaine à une palette de couleurs
-// Un objet JS utilisé comme dictionnaire : clé = domaine, valeur = couleurs
 function getDomainColors(domaine) {
   const palettes = {
     Astrophysique: { from: "#0f0c29", to: "#302b63", accent: "#a78bfa" },
@@ -383,15 +411,11 @@ function getDomainColors(domaine) {
     Neurosciences: { from: "#2a0a0a", to: "#7f1d1d", accent: "#f87171" },
     Chimie: { from: "#1a1a0a", to: "#713f12", accent: "#fbbf24" },
   };
-
-  // Si le domaine n'est pas dans la liste → couleur par défaut
   return (
     palettes[domaine] || { from: "#1a1a2e", to: "#16213e", accent: "#00d4ff" }
   );
 }
 
-// Génère les initiales du titre pour la couverture
-// Ignore les petits mots peu utiles comme "le", "de", "du", "et"
 function getInitiales(titre) {
   const motsIgnorer = [
     "de",
@@ -407,7 +431,6 @@ function getInitiales(titre) {
     "au",
     "aux",
   ];
-
   return titre
     .split(" ")
     .map((mot) => mot.trim())
@@ -422,7 +445,6 @@ function getInitiales(titre) {
 // ============================================
 
 function createBookCardHtml(livre) {
-  // Récupère la palette de couleurs selon le domaine
   const couleurs = getDomainColors(livre.domaine);
   const initiales = getInitiales(livre.titre);
 
@@ -433,12 +455,24 @@ function createBookCardHtml(livre) {
         background: linear-gradient(135deg, ${couleurs.from} 0%, ${couleurs.to} 100%);
         border-bottom: 3px solid ${couleurs.accent};
       ">
-        <span class="book-cover-initiales" style="color: ${couleurs.accent}">
-          ${initiales}
-        </span>
-        <span class="book-cover-domaine" style="color: ${couleurs.accent}">
-          ${escapeHtml(livre.domaine)}
-        </span>
+        <img
+          src="${livre.cover}"
+          alt="Couverture de ${escapeHtml(livre.titre)}"
+          class="book-cover-img"
+          onerror="this.remove(); document.getElementById('fallback-${livre.id}').style.display='flex';"
+        >
+        <!-- onerror : si l'image échoue → on la supprime du DOM
+             et on affiche le fallback identifié par son id unique -->
+
+        <div id="fallback-${livre.id}" class="book-cover-fallback" style="display:none;">
+          <!-- display:none par défaut — visible seulement si onerror se déclenche -->
+          <span class="book-cover-initiales" style="color: ${couleurs.accent}">
+            ${initiales}
+          </span>
+          <span class="book-cover-domaine" style="color: ${couleurs.accent}">
+            ${escapeHtml(livre.domaine)}
+          </span>
+        </div>
       </div>
 
       <div class="book-titre">${escapeHtml(livre.titre)}</div>
@@ -494,9 +528,7 @@ function getLivresFiltres() {
       const matchRecherche =
         livre.titre.toLowerCase().includes(recherche) ||
         livre.auteur.toLowerCase().includes(recherche);
-
       const matchDomaine = domaine === "" || livre.domaine === domaine;
-
       return matchRecherche && matchDomaine;
     })
     .sort((a, b) => {
@@ -526,8 +558,8 @@ function render() {
 // ============================================
 
 function resetErrors() {
-  Object.values(errorElements).forEach((element) => {
-    element.textContent = "";
+  Object.values(errorElements).forEach((el) => {
+    el.textContent = "";
   });
 }
 
@@ -535,42 +567,27 @@ function validateForm(data) {
   const errors = {};
   const currentYear = getCurrentYear();
 
-  if (data.titre === "") {
-    errors.titre = "Le titre est obligatoire.";
-  }
+  if (data.titre === "") errors.titre = "Le titre est obligatoire.";
 
-  if (data.auteur === "") {
-    errors.auteur = "L'auteur est obligatoire.";
-  }
+  if (data.auteur === "") errors.auteur = "L'auteur est obligatoire.";
 
-  if (
-    Number.isNaN(data.annee) ||
-    data.annee < 1800 ||
-    data.annee > currentYear
-  ) {
+  if (Number.isNaN(data.annee) || data.annee < 1800 || data.annee > currentYear)
     errors.annee = `Année entre 1800 et ${currentYear}.`;
-  }
 
-  if (data.domaine === "") {
-    errors.domaine = "Choisissez un domaine.";
-  }
+  if (data.domaine === "") errors.domaine = "Choisissez un domaine.";
 
-  if (Number.isNaN(data.note) || data.note < 0 || data.note > 10) {
+  if (Number.isNaN(data.note) || data.note < 0 || data.note > 10)
     errors.note = "Note entre 0 et 10.";
-  }
 
-  if (Number.isNaN(data.pages) || data.pages < 1) {
+  if (Number.isNaN(data.pages) || data.pages < 1)
     errors.pages = "Nombre de pages invalide.";
-  }
 
   return errors;
 }
 
 function showErrors(errors) {
   Object.entries(errors).forEach(([key, message]) => {
-    if (errorElements[key]) {
-      errorElements[key].textContent = message;
-    }
+    if (errorElements[key]) errorElements[key].textContent = message;
   });
 }
 
@@ -593,6 +610,9 @@ function ajouterLivre(data) {
     note: data.note,
     pages: data.pages,
     lu: data.lu,
+    cover: "",
+    // les livres ajoutés manuellement n'ont pas de couverture
+    // → le fallback CSS s'affichera automatiquement
   };
 
   state.livres.push(nouveauLivre);
@@ -622,7 +642,6 @@ elements.listContainer.addEventListener("click", (event) => {
 
 elements.formAjout.addEventListener("submit", (event) => {
   event.preventDefault();
-
   resetErrors();
 
   const formData = {
@@ -636,7 +655,6 @@ elements.formAjout.addEventListener("submit", (event) => {
   };
 
   const errors = validateForm(formData);
-
   if (Object.keys(errors).length > 0) {
     showErrors(errors);
     return;
